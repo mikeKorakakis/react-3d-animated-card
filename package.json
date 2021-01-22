@@ -1,5 +1,5 @@
 {
-  "name": "mikekorakakakis/react-3d-animated-card",
+  "name": "@mikekorakakis/react-3d-animated-card",
   "version": "1.0.8",
   "description": "3D Animated card component for ReactJs.",
   "author": "Mike Korakakis",
@@ -76,5 +76,6 @@
   "bugs": {
     "url": "https://github.com/mikekorakakis/react-3d-animated-card/issues"
   },
-  "homepage": "https://github.com/mikekorakakis/react-3d-animated-card#readme"
+  "homepage": "https://github.com/mikekorakakis/react-3d-animated-card#readme",
+  "dependencies": {}
 }
