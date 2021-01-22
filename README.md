@@ -1,5 +1,7 @@
-# @sl-codeblaster/react-3d-animated-card
+# @mikekorakakis/react-3d-animated-card
 
+This is a fork from @sl-codeblaster/react-3d-animated-card.
+It uses ids instead of classes to identify the elements so that it can work with server-side-rendering.
 > 3D Animated card component for ReactJs.
 
 [![NPM](https://img.shields.io/npm/v/@sl-codeblaster/react-3d-animated-card.svg)](https://www.npmjs.com/package/@sl-codeblaster/react-3d-animated-card) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
@@ -8,18 +10,17 @@
 
 with npm
 ```bash
-npm install --save @sl-codeblaster/react-3d-animated-card
+npm install --save @mikekorakakis/react-3d-animated-card
 ```
 
 with yarn
 ```bash
-yarn add @sl-codeblaster/react-3d-animated-card
+yarn add @mikekorakakis/react-3d-animated-card
 ```
 You should need to import css file to your css file.
 
-`@import "~@sl-codeblaster/react-3d-animated-card/dist/index.css";`
+`@import "@mikekorakakis/react-3d-animated-card/dist/index.css";`
 
-###[Live Demo](https://react-3d-animated-card.netlify.app)
 
 ![alt text](https://github.com/SL-CodeBlaster/react-3d-animated-card/blob/main/Screenshot.jpg?raw=true)
 
@@ -47,18 +48,18 @@ You should need to import css file to your css file.
     }}
 >
 
-    <div className="card">
-        <div className="figure">
-            <div className="figure_bg"/> // not required, just used for design
+    <div className="card" id="card_3d">
+        <div className="figure" id="figure_3d">
+            <div className="figure_bg" id="figure_bg_3d"/> // not required, just used for design
             <img src={require('./images/image.png').default} alt=""/>
         </div>
-        <div className="content">
-            <h2 className="title">Animated Card</h2>
-            <p className={"body"}>Lorem Ipsum is simply dummy text of the
+        <div className="content" id="content_3d">
+            <h2 className="title" id="title_3d">Animated Card</h2>
+            <p className={"body"} id="body_3d">Lorem Ipsum is simply dummy text of the
                 printing and typesetting industry</p>
         </div>
-        <div className="footer">
-            <button className={"footer_btn"}>BUTTON</button>
+        <div className="footer"  id="footer_3d">
+            <button className={"footer_btn"} id="footer_btn_3d">BUTTON</button>
         </div>
     </div>
 
@@ -99,6 +100,3 @@ use `config` prop to pass configuration object to the component.
 | rotation     | number        |
 | translateZ   | number        |
 
-## License
-
-MIT © [SL-CodeBlaster](https://github.com/SL-CodeBlaster)
