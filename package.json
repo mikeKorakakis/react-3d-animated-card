@@ -1,10 +1,13 @@
 {
-  "name": "@mikekorakakis/react-3d-animated-card",
+  "name": "mikekorakakakis/react-3d-animated-card",
   "version": "1.0.8",
   "description": "3D Animated card component for ReactJs.",
   "author": "Mike Korakakis",
   "license": "MIT",
-  "repository": "https://github.com/mikekorakakis/react-3d-animated-card",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mikekorakakis/react-3d-animated-card.git"
+  },
   "main": "dist/index.js",
   "module": "dist/index.modern.js",
   "source": "src/index.tsx",
@@ -69,5 +72,9 @@
   },
   "files": [
     "dist"
-  ]
+  ],
+  "bugs": {
+    "url": "https://github.com/mikekorakakis/react-3d-animated-card/issues"
+  },
+  "homepage": "https://github.com/mikekorakakis/react-3d-animated-card#readme"
 }
