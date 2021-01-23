@@ -2,6 +2,7 @@
 
 This is a fork from @sl-codeblaster/react-3d-animated-card.
 It uses ids instead of classes to identify the elements so that it can work with server-side-rendering.
+The firefox issues were also fixed.
 > 3D Animated card component for ReactJs.
 
 [![NPM](https://img.shields.io/npm/v/@sl-codeblaster/react-3d-animated-card.svg)](https://www.npmjs.com/package/@sl-codeblaster/react-3d-animated-card) [![JavaScript Style Guide](https://img.shields.io/badge/code_style-standard-brightgreen.svg)](https://standardjs.com)
