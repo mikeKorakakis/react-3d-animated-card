@@ -20,33 +20,41 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
     _this.title = null;
     _this.body = null;
     _this.button = null;
-
+    
     _this._onMouseMove = function (e) {
       var card = _this.card;
+      if(card)
+      {
       var config = _this.props.config;
       var xAxis = (window.innerWidth / 2 - e.pageX) / ((config === null || config === void 0 ? void 0 : config.rotation) || 15);
       var yAxis = (window.innerHeight / 2 - e.pageY) / ((config === null || config === void 0 ? void 0 : config.rotation) || 15);
       card.style.transition = 'all 0.1s ease';
       card.style.transform = "rotateY(" + xAxis + "deg) rotateX(" + yAxis + "deg)";
+      }
     };
 
     _this._onMouseLeave = function () {
       var _config$transition;
 
       var card = _this.card;
-      var config = _this.props.config;
-      card.style.transition = "all " + (config && ((_config$transition = config.transition) === null || _config$transition === void 0 ? void 0 : _config$transition.duration) || 0.5) + "s ease";
-      card.style.transform = "rotateY(0deg) rotateX(0deg)";
-      if (_this.title) _this.title.style.transform = 'translateZ(0px)';
-      if (_this.body) _this.body.style.transform = 'translateZ(0px)';
-      if (_this.button) _this.button.style.transform = 'translateZ(0px)';
-      if (_this.figureIcon) _this.figureIcon.style.transform = 'translateZ(0) rotateZ(0deg)';
+      if(card)
+      {   
+        var config = _this.props.config;
+        card.style.transition = "all " + (config && ((_config$transition = config.transition) === null || _config$transition === void 0 ? void 0 : _config$transition.duration) || 0.5) + "s ease";
+        card.style.transform = "rotateY(0deg) rotateX(0deg)";
+        if (_this.title) _this.title.style.transform = 'translateZ(0px)';
+        if (_this.body) _this.body.style.transform = 'translateZ(0px)';
+        if (_this.button) _this.button.style.transform = 'translateZ(0px)';
+        if (_this.figureIcon) _this.figureIcon.style.transform = 'translateZ(0) rotateZ(0deg)';
+      }
     };
 
     _this._onMouseEnter = function () {
+     
       var _config$transition2, _config$transition3, _config$transition4, _config$transition5, _config$transition6, _config$transform, _config$transform2, _config$transform3, _config$transform4, _config$transform4$fi, _config$transform5, _config$transform5$fi;
 
       var card = _this.card;
+      if(card){
       var config = _this.props.config;
       card.style.transition = "all " + (config && ((_config$transition2 = config.transition) === null || _config$transition2 === void 0 ? void 0 : _config$transition2.duration) || 0.5) + "s ease";
       if (_this.title) _this.title.style.transition = "all " + (config && ((_config$transition3 = config.transition) === null || _config$transition3 === void 0 ? void 0 : _config$transition3.duration) || 0.5) + "s ease";
@@ -57,7 +65,12 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
       if (_this.body) _this.body.style.transform = "translateZ(" + (config && ((_config$transform2 = config.transform) === null || _config$transform2 === void 0 ? void 0 : _config$transform2.bodyTextTranslateZ) || 125) + "px)";
       if (_this.button) _this.button.style.transform = "translateZ(" + (config && ((_config$transform3 = config.transform) === null || _config$transform3 === void 0 ? void 0 : _config$transform3.buttonTranslateZ) || 100) + "px)";
       if (_this.figureIcon) _this.figureIcon.style.transform = "translateZ(" + (config && ((_config$transform4 = config.transform) === null || _config$transform4 === void 0 ? void 0 : (_config$transform4$fi = _config$transform4.figureIcon) === null || _config$transform4$fi === void 0 ? void 0 : _config$transform4$fi.translateZ) || 160) + "px) rotateZ(" + (config && ((_config$transform5 = config.transform) === null || _config$transform5 === void 0 ? void 0 : (_config$transform5$fi = _config$transform5.figureIcon) === null || _config$transform5$fi === void 0 ? void 0 : _config$transform5$fi.rotation) || 45) + "deg)";
+      }
+    // },60)
+    
     };
+
+
 
     _this.state = {
       mainClass: ''
@@ -70,15 +83,23 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
   _proto.componentDidMount = function componentDidMount() {
     var _this2 = this;
 
-    this.card = document.querySelector("." + styles.cardDefault);
-    // this.figureIcon = document.querySelector("." + styles.cardDefault + " .figure img");
-    // this.title = document.querySelector("." + styles.cardDefault + " .content .title");
-    // this.body = document.querySelector("." + styles.cardDefault + " .content .body");
-    // this.button = document.querySelector("." + styles.cardDefault + " .footer .footer_btn");
-    this.figureIcon = document.querySelector("#figure_3d img");
-    this.title = document.querySelector("#title_3d");
-    this.body = document.querySelector("#body_3d");
-    this.button = document.querySelector("#footer_btn_3d");
+    const idKey = this.props.idKey 
+
+    this.card = document.querySelector(`#card_3d_${idKey}`);
+    this.figureIcon = document.querySelector(`#figure_3d_${idKey} img`);
+    this.title = document.querySelector(`#title_3d_${idKey}`);
+    this.body = document.querySelector(`#body_3d_${idKey}`);
+    this.button = document.querySelector(`#footer_btn_3d_${idKey}`);
+
+    // this.card = document.querySelector("." + styles.cardDefault);
+    // // this.figureIcon = document.querySelector("." + styles.cardDefault + " .figure img");
+    // // this.title = document.querySelector("." + styles.cardDefault + " .content .title");
+    // // this.body = document.querySelector("." + styles.cardDefault + " .content .body");
+    // // this.button = document.querySelector("." + styles.cardDefault + " .footer .footer_btn");
+    // this.figureIcon = document.querySelector("#figure_3d img");
+    // this.title = document.querySelector("#title_3d");
+    // this.body = document.querySelector("#body_3d");
+    // this.button = document.querySelector("#footer_btn_3d");
     React.Children.forEach(this.props.children, function (element) {
       if (!React.isValidElement(element)) return;
 
