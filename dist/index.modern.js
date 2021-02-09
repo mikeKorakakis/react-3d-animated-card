@@ -23,7 +23,8 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
     
     _this._onMouseMove = function (e) {
       var card = _this.card;
-      if(card)
+      var make3d = _this.props.make3d;
+      if(card && make3d)
       {
       var config = _this.props.config;
       var xAxis = (window.innerWidth / 2 - e.pageX) / ((config === null || config === void 0 ? void 0 : config.rotation) || 15);
@@ -37,7 +38,8 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
       var _config$transition;
 
       var card = _this.card;
-      if(card)
+      var make3d = _this.props.make3d;
+      if(card && make3d)
       {   
         var config = _this.props.config;
         card.style.transition = "all " + (config && ((_config$transition = config.transition) === null || _config$transition === void 0 ? void 0 : _config$transition.duration) || 0.5) + "s ease";
@@ -54,7 +56,9 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
       var _config$transition2, _config$transition3, _config$transition4, _config$transition5, _config$transition6, _config$transform, _config$transform2, _config$transform3, _config$transform4, _config$transform4$fi, _config$transform5, _config$transform5$fi;
 
       var card = _this.card;
-      if(card){
+      var make3d = _this.props.make3d;
+      if(card && make3d)
+      {
       var config = _this.props.config;
       card.style.transition = "all " + (config && ((_config$transition2 = config.transition) === null || _config$transition2 === void 0 ? void 0 : _config$transition2.duration) || 0.5) + "s ease";
       if (_this.title) _this.title.style.transition = "all " + (config && ((_config$transition3 = config.transition) === null || _config$transition3 === void 0 ? void 0 : _config$transition3.duration) || 0.5) + "s ease";
@@ -65,9 +69,9 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
       if (_this.body) _this.body.style.transform = "translateZ(" + (config && ((_config$transform2 = config.transform) === null || _config$transform2 === void 0 ? void 0 : _config$transform2.bodyTextTranslateZ) || 125) + "px)";
       if (_this.button) _this.button.style.transform = "translateZ(" + (config && ((_config$transform3 = config.transform) === null || _config$transform3 === void 0 ? void 0 : _config$transform3.buttonTranslateZ) || 100) + "px)";
       if (_this.figureIcon) _this.figureIcon.style.transform = "translateZ(" + (config && ((_config$transform4 = config.transform) === null || _config$transform4 === void 0 ? void 0 : (_config$transform4$fi = _config$transform4.figureIcon) === null || _config$transform4$fi === void 0 ? void 0 : _config$transform4$fi.translateZ) || 160) + "px) rotateZ(" + (config && ((_config$transform5 = config.transform) === null || _config$transform5 === void 0 ? void 0 : (_config$transform5$fi = _config$transform5.figureIcon) === null || _config$transform5$fi === void 0 ? void 0 : _config$transform5$fi.rotation) || 45) + "deg)";
-      }
-    // },60)
-    
+      
+
+    }
     };
 
 
@@ -86,10 +90,22 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
     const idKey = this.props.idKey 
 
     this.card = document.querySelector(`#card_3d_${idKey}`);
-    this.figureIcon = document.querySelector(`#figure_3d_${idKey} img`);
+    this.figureIcon = document.querySelector(`#figure_3d_${idKey}`);
     this.title = document.querySelector(`#title_3d_${idKey}`);
     this.body = document.querySelector(`#body_3d_${idKey}`);
     this.button = document.querySelector(`#footer_btn_3d_${idKey}`);
+    this.content = document.querySelector(`#content_3d_${idKey}`);
+    this.footer = document.querySelector(`#footer_3d_${idKey}`);
+    this.figure_bg = document.querySelector(`#figure_bg_3d_${idKey}`);
+
+    if(this.card) this.card.style.transformStyle = "preserve-3d";
+    if(this.figureIcon) this.figureIcon.style.transformStyle = "preserve-3d";
+    if(this.title) this.title.style.transformStyle = "preserve-3d";
+    if(this.body) this.body.style.transformStyle = "preserve-3d";
+    if(this.button) this.button.style.transformStyle = "preserve-3d";
+    if(this.content) this.content.style.transformStyle = "preserve-3d";
+    if(this.figure_bg) this.figure_bg.style.transformStyle = "preserve-3d";
+    if(this.footer) this.footer.style.transformStyle = "preserve-3d";
 
     // this.card = document.querySelector("." + styles.cardDefault);
     // // this.figureIcon = document.querySelector("." + styles.cardDefault + " .figure img");

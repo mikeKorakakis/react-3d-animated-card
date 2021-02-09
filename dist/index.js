@@ -25,8 +25,8 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
 
     _this._onMouseMove = function (e) {
       var card = _this.card;
-      if(card)
-      {   
+      var make3d = _this.props.make3d;
+      if(card && make3d)      {   
       var config = _this.props.config;
       var xAxis = (window.innerWidth / 2 - e.pageX) / ((config === null || config === void 0 ? void 0 : config.rotation) || 15);
       var yAxis = (window.innerHeight / 2 - e.pageY) / ((config === null || config === void 0 ? void 0 : config.rotation) || 15);
@@ -40,8 +40,9 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
 
       var card = _this.card;
       var config = _this.props.config;
-      if(card)
-      {   
+      var make3d = _this.props.make3d;
+      if(card && make3d)
+      {  
       card.style.transition = "all " + (config && ((_config$transition = config.transition) === null || _config$transition === void 0 ? void 0 : _config$transition.duration) || 0.5) + "s ease";
       card.style.transform = "rotateY(0deg) rotateX(0deg)";
       if (_this.title) _this.title.style.transform = 'translateZ(0px)';
@@ -56,8 +57,9 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
 
       var card = _this.card;
       var config = _this.props.config;
-      if(card)
-      {   
+      var make3d = _this.props.make3d;
+      if(card && make3d)
+      { 
       card.style.transition = "all " + (config && ((_config$transition2 = config.transition) === null || _config$transition2 === void 0 ? void 0 : _config$transition2.duration) || 0.5) + "s ease";
       if (_this.title) _this.title.style.transition = "all " + (config && ((_config$transition3 = config.transition) === null || _config$transition3 === void 0 ? void 0 : _config$transition3.duration) || 0.5) + "s ease";
       if (_this.body) _this.body.style.transition = "all " + (config && ((_config$transition4 = config.transition) === null || _config$transition4 === void 0 ? void 0 : _config$transition4.duration) || 0.5) + "s ease";
@@ -84,11 +86,21 @@ var AnimatedCard = /*#__PURE__*/function (_React$Component) {
     const idKey = this.props.idKey 
 
     this.card = document.querySelector(`#card_3d_${idKey}`);
-    this.figureIcon = document.querySelector(`#figure_3d_${idKey} img`);
+    this.figureIcon = document.querySelector(`#figure_3d_${idKey}`);
     this.title = document.querySelector(`#title_3d_${idKey}`);
     this.body = document.querySelector(`#body_3d_${idKey}`);
     this.button = document.querySelector(`#footer_btn_3d_${idKey}`);
+    this.content = document.querySelector(`#content_3d_${idKey}`);
+    this.footer = document.querySelector(`#footer_3d_${idKey}`);
+    this.figure_bg = document.querySelector(`#figure_bg_3d_${idKey}`);
 
+    if(this.card) this.card.style.transformStyle = "preserve-3d";
+    if(this.figureIcon) this.figureIcon.style.transformStyle = "preserve-3d";
+    if(this.title) this.title.style.transformStyle = "preserve-3d";
+    if(this.body) this.body.style.transformStyle = "preserve-3d";
+    if(this.button) this.button.style.transformStyle = "preserve-3d";
+    if(this.content) this.content.style.transformStyle = "preserve-3d";
+    if(this.figure_bg) this.figure_bg.style.transformStyle = "preserve-3d";
 
     // this.card = document.querySelector("." + styles.cardDefault);
     // this.figureIcon = document.querySelector("." + styles.cardDefault + " .figure img");
